@@ -1,0 +1,42 @@
+.navbar-bg {
+  background-color: #e8f5e9; 
+}
+
+.navbar-logo {
+  max-height: 75px;
+  background-color: #e8f5e9; 
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.nav-link-services {
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: #000;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.nav-link-services:hover {
+  text-decoration: underline;
+}
+
+.brand-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.brand-name {
+  font-size: 1.8rem;
+  color: #4caf50;
+  font-weight: bold;
+  margin: 0;
+}
+
+.brand-description {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-top: 5px;
+  margin-bottom: 0;
+}
