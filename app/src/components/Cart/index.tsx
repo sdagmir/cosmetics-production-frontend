@@ -1,30 +1,33 @@
 import { FC } from 'react';
 import { ICartProps } from './typing';
-import { Container } from 'react-bootstrap';
 import './Cart.css';
-
-
+import { Link } from "react-router-dom";
 
 export const Cart: FC<ICartProps> = ({ itemsInCart }) => {
+  console.log("Количество товаров в корзине:", itemsInCart);
   return (
-    <Container
-      className="cart-container position-relative m-0 border border-2 shadow-sm rounded p-2 align-self-end"
-      style={{ width: '150px', height: '95px', transition: 'transform 550ms', backgroundColor: '#ffffff' }}
+    <div
+      className="cart-container position-relative"
+      style={{ transition: 'transform 550ms' }}
       onMouseEnter={(e) => (e.currentTarget.style.transform = 'translateY(-5px)')}
       onMouseLeave={(e) => (e.currentTarget.style.transform = 'translateY(0)')}
     >
-      <a href="#" className="d-flex flex-column align-items-center text-dark text-decoration-none fw-medium">
+      <Link
+        to=""
+        className="cart-link text-decoration-none"
+        onClick={(e) => e.preventDefault()} // Отключает действие ссылки
+      >
         <img
-          src="/basket.png" 
+          src="/basket.png"
           alt="Basket Icon"
           className="cart-icon"
         />
         {itemsInCart > 0 && (
-          <div className="cart-counter bg-success text-white rounded-circle d-flex justify-content-center align-items-center">
+          <div className="cart-counter">
             {itemsInCart}
           </div>
         )}
-      </a>
-    </Container>
+      </Link>
+    </div>
   );
 };
