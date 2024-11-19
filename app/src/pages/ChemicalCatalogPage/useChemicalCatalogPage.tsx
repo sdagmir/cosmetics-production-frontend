@@ -10,8 +10,8 @@ export const useChemicalCatalogPage = () => {
     const [itemsInCart, setItemsInCart] = useState<number>(0);
     const [searchChemicalElementTitle, setSearchChemicalElementTitle] = useState("");
 
-    const fetchChemicalElements = (title?: string) => {
-        getChemicalElementList(title)
+    const fetchChemicalElements = (component_title?: string) => {
+        getChemicalElementList(component_title)
         .then((data) => {
             setChemicalElementList(data.elements);
             setFormulationId(data.formulation_id);
@@ -19,9 +19,9 @@ export const useChemicalCatalogPage = () => {
         })
         .catch(() => {
             let filteredChemicalElement = CHEMICAL_ELEMENT_LIST_MOCK;
-            if (title && title !== undefined) {
+            if (component_title && component_title !== undefined) {
                 filteredChemicalElement = filteredChemicalElement.filter((chemicalElement: IChemicalElement) =>
-                    chemicalElement.title.toLowerCase().includes(title.toLowerCase())
+                    chemicalElement.title.toLowerCase().includes(component_title.toLowerCase())
                 );
             }
             setChemicalElementList(filteredChemicalElement);

@@ -1,6 +1,7 @@
 import {RouteObject, useRoutes} from "react-router-dom";
 import { MainPage } from "./pages/MainPage";
 import { ChemicalCatalogPage } from "./pages/ChemicalCatalogPage";
+import ChemicalElementPage from "./pages/ChemicalElementPage";
 
 
 export const AppRoutes = () => {
@@ -13,10 +14,10 @@ export const AppRoutes = () => {
             path: "chemical-elements",
             element: <ChemicalCatalogPage />,
         },
-        /*{
-            path: "provider-duties/:id",
-            element: <ProviderServicePage />,
-        },*/
+        {
+            path: "chemical-elements/:id",
+            element: <ChemicalElementPage />,
+        },
     ];
     const routeResult = useRoutes(routes);
     return <>{routeResult}</>;
