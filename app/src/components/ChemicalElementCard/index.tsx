@@ -2,16 +2,20 @@ import { FC } from "react";
 import { IChemicalElementProps } from "./typing";
 import { Button, Card } from "react-bootstrap";
 import "./ChemicalElementCard.css";
+import { Link } from "react-router-dom";
 
 export const ChemicalElementCard: FC<IChemicalElementProps> = (chemicalElement: IChemicalElementProps) => {
     return (
       <Card className="provider-card w-100 rounded-4 shadow-sm" style={{ overflow: "hidden" }}>
-        <Card.Img
-          variant="top"
-          src={chemicalElement.img_path}
-          className="provider-card-img"
-          alt={chemicalElement.title}
-        />
+        <Link to={`/chemical-elements/${chemicalElement.id}`} style={{ textDecoration: 'none' }}>
+          <Card.Img variant="top" src={chemicalElement.img_path}
+            style={{
+              width: '100%',
+              height: '300px',
+              objectFit: 'cover'
+            }}
+          />
+        </Link>
         <Card.Body className="d-flex flex-column">
           <Card.Title className="text-success fs-5 fw-bold">{chemicalElement.title}</Card.Title>
           <Card.Text className="text-muted fs-6 mb-2">{chemicalElement.short_description}</Card.Text>
