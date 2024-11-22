@@ -11,6 +11,7 @@ export const ChemicalCatalogPage: FC = () => {
     chemicalElementList,
     formulationId,
     itemsInCart,
+    searchTerm,
     handleSearchChemicalElementClick,
     handleSearchTitleChange,
   } = useChemicalCatalogPage();
@@ -31,6 +32,7 @@ export const ChemicalCatalogPage: FC = () => {
               onChange={handleSearchTitleChange}
               placeholder="Поиск химического элемента"
               aria-label="Поиск"
+              value={searchTerm}
             />
           </div>
           <div>
