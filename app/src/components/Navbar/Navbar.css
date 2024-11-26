@@ -2,6 +2,7 @@
   background-color: #e8f5e9; 
 }
 
+
 .navbar-logo {
   max-height: 75px;
   background-color: #e8f5e9; 
@@ -15,11 +16,14 @@
   color: #000;
   font-weight: 600;
   white-space: nowrap;
+  transition: transform 0.3s ease;
 }
 
 .nav-link-services:hover {
   text-decoration: underline;
+  transform: scale(1.05);
 }
+
 
 .brand-info {
   display: flex;
@@ -39,4 +43,32 @@
   color: #6c757d;
   margin-top: 5px;
   margin-bottom: 0;
+}
+
+
+@media (max-width: 768px) {
+  .navbar-logo {
+    max-height: 50px; 
+  }
+
+  .brand-info {
+    margin-left: 5px;
+    text-align: center; 
+  }
+
+  .nav-link-services {
+    font-size: 1.2rem; 
+  }
+
+  .brand-name {
+    font-size: 1.5rem; 
+  }
+
+  .brand-description {
+    font-size: 0.8rem; 
+  }
+
+  .navbar-bg {
+    padding: 10px; 
+  }
 }

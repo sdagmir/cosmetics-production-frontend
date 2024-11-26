@@ -5,6 +5,7 @@ import { ChemicalElementCard } from '../../components/ChemicalElementCard';
 import { FC } from 'react';
 import { Breadcrumbs } from '../../components/BreadCrumbs';
 import { useChemicalCatalogPage } from './useChemicalCatalogPage';
+import "./ChemicalCatalogPage.css"
 
 export const ChemicalCatalogPage: FC = () => {
   const {
@@ -24,8 +25,9 @@ export const ChemicalCatalogPage: FC = () => {
           <Breadcrumbs endItem="Каталог" />
           <Cart connectionRequestId={formulationId} itemsInCart={itemsInCart} />
         </Container>
-        <div className="d-flex flex-row gap-3 mb-4 col-8 align-self-center">
-          <div className="flex-grow-1">
+        
+        <Row className="align-items-center justify-content-center mb-4 col-12">
+          <Col xs={12} sm={8} md={6} lg={6} className="mb-2">
             <input
               type="text"
               className="input form-control"
@@ -33,17 +35,19 @@ export const ChemicalCatalogPage: FC = () => {
               placeholder="Поиск химического элемента"
               aria-label="Поиск"
               value={searchTerm}
+              style={{ width: '100%' }}
             />
-          </div>
-          <div>
+          </Col>
+          <Col xs="auto">
             <Button
               onClick={handleSearchChemicalElementClick}
-              className="btn btn-secondary ml-3 mr-3"
+              className="btn btn-secondary"
             >
               Искать
             </Button>
-          </div>
-        </div>
+          </Col>
+        </Row>
+
         <Row xs={1} sm={1} lg={3} className="g-4 justify-content-start">
           {chemicalElementList.map((chemicalElement) => (
             <Col key={chemicalElement.id} className="d-flex align-items-stretch">
@@ -57,3 +61,4 @@ export const ChemicalCatalogPage: FC = () => {
 };
 
 export default ChemicalCatalogPage;
+

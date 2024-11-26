@@ -4,7 +4,7 @@ export const chemicalElementList: IChemicalElement[] = [
     {
         "id": 1,
         "title": "Био-хелат",
-        "img_path": "/image_placeholder.jpg",
+        "img_path": "",
         "volume": 100,
         "unit": "мл",
         "price": "2950.00",
@@ -14,7 +14,7 @@ export const chemicalElementList: IChemicalElement[] = [
     {
         "id": 2,
         "title": "L-аргинин",
-        "img_path": "/image_placeholder.jpg",
+        "img_path": "",
         "volume": 30,
         "unit": "г",
         "price": "340.00",
@@ -24,7 +24,7 @@ export const chemicalElementList: IChemicalElement[] = [
     {
         "id": 3,
         "title": "Каприлилгликоль",
-        "img_path": "/image_placeholder.jpg",
+        "img_path": "",
         "volume": 100,
         "unit": "г",
         "price": "1600.00",
@@ -34,7 +34,7 @@ export const chemicalElementList: IChemicalElement[] = [
     {
         "id": 4,
         "title": "Пентиленгликоль",
-        "img_path": "/image_placeholder.jpg",
+        "img_path": "",
         "volume": 50,
         "unit": "мл",
         "price": "890.00",
@@ -44,7 +44,7 @@ export const chemicalElementList: IChemicalElement[] = [
     {
         "id": 5,
         "title": "Дипропиленгликоль",
-        "img_path": "/image_placeholder.jpg",
+        "img_path": "",
         "volume": 500,
         "unit": "мл",
         "price": "550.00",
@@ -54,7 +54,7 @@ export const chemicalElementList: IChemicalElement[] = [
     {
         "id": 6,
         "title": "Изелюкс",
-        "img_path": "/image_placeholder.jpg",
+        "img_path": "",
         "volume": 500,
         "unit": "г",
         "price": "1720.00",

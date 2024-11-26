@@ -3,12 +3,13 @@ import { IChemicalElementProps } from "./typing";
 import { Button, Card } from "react-bootstrap";
 import "./ChemicalElementCard.css";
 import { Link } from "react-router-dom";
+import placeholderImage from "/images/image_placeholder.jpg";
 
 export const ChemicalElementCard: FC<IChemicalElementProps> = (chemicalElement: IChemicalElementProps) => {
     return (
       <Card className="provider-card w-100 rounded-4 shadow-sm" style={{ overflow: "hidden" }}>
         <Link to={`/chemical-elements/${chemicalElement.id}`} style={{ textDecoration: 'none' }}>
-          <Card.Img variant="top" src={chemicalElement.img_path}
+          <Card.Img variant="top" src={chemicalElement.img_path ? (chemicalElement.img_path) : (placeholderImage)}
             style={{
               width: '100%',
               height: '300px',

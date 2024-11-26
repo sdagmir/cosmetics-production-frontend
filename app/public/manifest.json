@@ -1,0 +1,19 @@
+{
+    "name": "Cosmetic Production",
+    "short_name": "Cosmetic",
+    "start_url": "/cosmetics-production-frontend/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "lang": "en",
+    "scope": "/cosmetics-production-frontend/",
+    "theme_color": "#db4938",
+    "orientation": "portrait-primary",
+    "icons": [
+      {
+        "src": "/cosmetics-production-frontend/assets/logo.png",
+        "type": "image/png",
+        "sizes": "256x256"
+      }
+    ]
+  }
+  

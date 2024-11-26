@@ -6,11 +6,11 @@ import { Provider } from 'react-redux';
 
 function App() {
   return (
-    <Provider store={store}>
-      <BrowserRouter>
+    <BrowserRouter basename='/cosmetics-production-frontend'>
+      <Provider store={store}>
         <AppRoutes />
-      </BrowserRouter>
-    </Provider>
+      </Provider>
+    </BrowserRouter>
   );
 }
 
