@@ -5,15 +5,10 @@
   "identifier": "com.tauri.build",
   "build": {
     "frontendDist": "../dist",
-    "devUrl": "https://192.168.0.105:3000",
+    "devUrl": "https://192.168.0.105:3000/cosmetics-production-frontend",
     "beforeDevCommand": "npm run dev",
     "beforeBuildCommand": "npm run build"
   },
-  "plugins": {
-        "http": {
-          "enabled": true
-        }
-    },
   "app": {
     "withGlobalTauri": true,
     "windows": [
@@ -39,5 +34,15 @@
       "icons/icon.icns",
       "icons/icon.ico"
     ]
-  }
+  },
+  "plugins": {
+		"fs": {
+			"scope": {
+				"allow": [
+					"http://192.168.0.105:8000/*",
+          "http://192.168.0.105:9000/*"
+				]
+			}
+		}
+	}
 }

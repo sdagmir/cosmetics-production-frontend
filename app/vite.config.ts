@@ -18,6 +18,7 @@ export default defineConfig({
         manifest: {
           name: "Cosmetic Production",
           short_name: "Cosmetics",
+          start_url: dest_root,
           display: "standalone",
           background_color: "#fdfdfd",
           theme_color: "#4caf50",
