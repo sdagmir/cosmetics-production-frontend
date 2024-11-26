@@ -4,6 +4,7 @@ import react from '@vitejs/plugin-react'
 import mkcert from'vite-plugin-mkcert'
 import fs from 'fs';
 import path from 'path';
+import {api_proxy_addr, img_proxy_addr, dest_root} from "./target_config"
 
 export default defineConfig({
     plugins: [
@@ -36,8 +37,9 @@ export default defineConfig({
           ],
         },
       })],
-    base: "/cosmetics-production-frontend/",
+    base: dest_root,
     server: {
+        host: true,
         port: 3000,
         https: {
             key: fs.readFileSync(path.resolve(__dirname, 'cert.key')),
@@ -45,12 +47,12 @@ export default defineConfig({
           },
         proxy: {
             "/api": {
-                target: "http://192.168.0.105:8000",
+                target: api_proxy_addr,
                 changeOrigin: true,
                 rewrite: (path) => path.replace(/^\/api/, ''),
             },
             "/web-img": {
-                target: "http://192.168.0.105:9000",
+                target: img_proxy_addr,
                 changeOrigin: true,
                 secure: false,
             },

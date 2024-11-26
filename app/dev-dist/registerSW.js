@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) navigator.serviceWorker.register('/cosmetics-production-frontend/dev-sw.js?dev-sw', { scope: '/cosmetics-production-frontend/', type: 'classic' })
