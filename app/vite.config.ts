@@ -17,6 +17,7 @@ export default defineConfig({
         manifest: {
           name: "Cosmetic Production",
           short_name: "Cosmetics",
+          start_url: "/cosmetics-production-frontend",
           display: "standalone",
           background_color: "#fdfdfd",
           theme_color: "#4caf50",
@@ -36,7 +37,7 @@ export default defineConfig({
           ],
         },
       })],
-    base: "/cosmetics-production-frontend/",
+    base: "/cosmetics-production-frontend",
     server: {
         port: 3000,
         https: {
@@ -45,12 +46,12 @@ export default defineConfig({
           },
         proxy: {
             "/api": {
-                target: "http://192.168.0.105:8000",
+                target: "http://192.168.124.80:8000",
                 changeOrigin: true,
                 rewrite: (path) => path.replace(/^\/api/, ''),
             },
             "/web-img": {
-                target: "http://192.168.0.105:9000",
+                target: "http://192.168.124.80:9000",
                 changeOrigin: true,
                 secure: false,
             },
