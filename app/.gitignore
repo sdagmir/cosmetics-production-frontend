@@ -9,9 +9,14 @@ lerna-debug.log*
 
 node_modules
 dist
+dev-dist
 dist-ssr
+src-tauri
 *.local
-
+ca.crt
+ca.key
+cert.crt
+cert.key
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
