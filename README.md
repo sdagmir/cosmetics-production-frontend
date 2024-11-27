@@ -7,7 +7,7 @@
 ## Ссылки на репозитории проекта:
 
 1. [Фронтенд](https://github.com/sdagmir/cosmetics-production-frontend)
-2. [Бэкенд](https://github.com/sdagmir/cosmetics-production-backend)
+2. [Бэкенд](https://github.com/sdagmir/cosmetic-production-backend)
 
 ## Фронтенд
 
