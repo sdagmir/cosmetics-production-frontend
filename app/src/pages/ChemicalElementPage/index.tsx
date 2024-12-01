@@ -7,6 +7,7 @@ import { getChemicalElementById } from "../../core/api/service";
 import { chemicalElementList as CHEMICAL_ELEMENT_LIST_MOCK } from "../../core/mock/chemicalElementList";
 import { Breadcrumbs } from "../../components/BreadCrumbs";
 import placeholderImage from "/images/image_placeholder.jpg";
+import { dest_img } from "../../../target_config";
 
 export const ChemicalElementPage: FC = () => {
     const { id } = useParams();
@@ -57,7 +58,7 @@ export const ChemicalElementPage: FC = () => {
             
             <Container fluid className="mt-5 pb-4 d-flex flex-column align-items-center mx-auto px-3">
                 <Card className="col-12 col-md-8 col-lg-5 rounded-4 shadow-sm" style={{ overflow: 'hidden' }}>
-                    <Card.Img variant="top" src={chemicalElementData.img_path ? (chemicalElementData.img_path) : (placeholderImage)} 
+                    <Card.Img variant="top" src={chemicalElementData.img_path ? (dest_img + chemicalElementData.img_path) : (placeholderImage)} 
                         style={{ 
                             width: '100%', 
                             height: 'auto',

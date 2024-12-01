@@ -5,12 +5,13 @@
   "identifier": "com.tauri.build",
   "build": {
     "frontendDist": "../dist",
-    "devUrl": "https://192.168.0.105:3000/cosmetics-production-frontend",
+    "devUrl": "https://192.168.0.106:3000/cosmetics-production-frontend",
     "beforeDevCommand": "npm run dev",
     "beforeBuildCommand": "npm run build"
   },
   "app": {
     "withGlobalTauri": true,
+    
     "windows": [
       {
         "title": "my-app",
@@ -24,6 +25,7 @@
       "csp": null
     }
   },
+
   "bundle": {
     "active": true,
     "targets": "all",
@@ -39,8 +41,8 @@
 		"fs": {
 			"scope": {
 				"allow": [
-					"http://192.168.0.105:8000/*",
-          "http://192.168.0.105:9000/*"
+					"http://192.168.0.106:8000/*",
+          "http://192.168.0.106:9000/*"
 				]
 			}
 		}

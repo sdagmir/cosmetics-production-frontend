@@ -31,3 +31,17 @@
   justify-content: center;
   align-items: center;
 }
+
+.cart-container.inactive {
+  opacity: 0.7; /* Уменьшение прозрачности для серого эффекта */
+  cursor: not-allowed; /* Указатель, показывающий неактивность */
+  transform: none; /* Отключение эффектов движения */
+}
+
+.cart-container.inactive .cart-icon {
+  filter: grayscale(100%); /* Применение серого цвета к изображению */
+}
+
+.cart-container.inactive:hover {
+  transform: none; /* Отключение эффекта при наведении */
+}

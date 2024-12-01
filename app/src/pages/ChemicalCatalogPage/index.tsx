@@ -6,6 +6,7 @@ import { FC } from 'react';
 import { Breadcrumbs } from '../../components/BreadCrumbs';
 import { useChemicalCatalogPage } from './useChemicalCatalogPage';
 import "./ChemicalCatalogPage.css"
+import { dest_img } from "../../../target_config";
 
 export const ChemicalCatalogPage: FC = () => {
   const {
@@ -16,6 +17,11 @@ export const ChemicalCatalogPage: FC = () => {
     handleSearchChemicalElementClick,
     handleSearchTitleChange,
   } = useChemicalCatalogPage();
+
+  const updatedChemicalElementList = chemicalElementList.map((chemicalElement) => ({
+    ...chemicalElement,
+    img_path: `${dest_img}${chemicalElement.img_path}`,
+  }));
 
   return (
     <>
@@ -49,7 +55,7 @@ export const ChemicalCatalogPage: FC = () => {
         </Row>
 
         <Row xs={1} sm={1} lg={3} className="g-4 justify-content-start">
-          {chemicalElementList.map((chemicalElement) => (
+          {updatedChemicalElementList.map((chemicalElement) => (
             <Col key={chemicalElement.id} className="d-flex align-items-stretch">
               <ChemicalElementCard {...chemicalElement} />
             </Col>
