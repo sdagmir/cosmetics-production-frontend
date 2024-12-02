@@ -1,4 +1,4 @@
 export interface ICartProps {
-    connectionRequestId: number;
+    connectionRequestId: number | null;
     itemsInCart: number
 }

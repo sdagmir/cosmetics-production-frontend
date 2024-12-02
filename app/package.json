@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "preview": "vite preview --host",
     "deploy": "gh-pages -d dist",
-    "generate-pwa-assets": "pwa-assets-generator --preset minimal public/logo.png"
+    "generate-pwa-assets": "pwa-assets-generator --preset minimal public/logo.png",
+    "generate-api": "node scripts/generate-api.mjs"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.3.0",
@@ -33,6 +34,7 @@
     "eslint-plugin-react-refresh": "^0.4.14",
     "globals": "^15.11.0",
     "mkcert": "^3.2.0",
+    "swagger-typescript-api": "^13.0.23",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.11.0",
     "vite": "^5.4.10",

@@ -46,12 +46,12 @@ export default defineConfig({
           },
         proxy: {
             "/api": {
-                target: "http://192.168.0.106:8000",
+                target: "http://localhost:8000",
                 changeOrigin: true,
                 rewrite: (path) => path.replace(/^\/api/, ''),
             },
             "/web-img": {
-                target: "http://192.168.0.106:9000",
+                target: "http://localhost:9000",
                 changeOrigin: true,
                 secure: false,
             },

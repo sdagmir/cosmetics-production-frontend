@@ -1,6 +1,6 @@
 import { IChemicalElement } from "../api/service/typing";
 
-export const chemicalElementList: IChemicalElement[] = [
+export const ChemicalElementList: IChemicalElement[] = [
     {
         "id": 1,
         "title": "Био-хелат",
