@@ -6,6 +6,9 @@ import { ChemicalElementList as CHEMICAL_ELEMENT_LIST_MOCK} from "../../mock/che
 interface ChemicalCatalogState {
     searchTitle: string;
     chemicalElementList: Component[];
+    filterFormulationStatus?: string;
+    filterFormulationStartDate?: string;
+    filterFormulationEndDate?: string;
     formulationId: number | null;
     itemsInCart: number;
     isActive: boolean;
@@ -14,6 +17,9 @@ interface ChemicalCatalogState {
 const initialState: ChemicalCatalogState = {
     searchTitle: '',
     chemicalElementList: [],
+    filterFormulationStatus: undefined,
+    filterFormulationStartDate: undefined,
+    filterFormulationEndDate: undefined,
     formulationId: null,
     itemsInCart: 0,
     isActive: false
@@ -40,6 +46,15 @@ const appSlice = createSlice({
     reducers:{
         setSearchTitle: (state, action: PayloadAction<string>) => {
             state.searchTitle = action.payload;
+        },
+        setFilterFormulationStatus: (state, action: PayloadAction<string>) =>{
+            state.filterFormulationStatus = action.payload;
+        },
+        setFilterFormulationStartDate: (state, action: PayloadAction<string>) =>{
+            state.filterFormulationStartDate = action.payload;
+        },
+        setFilterFormulationEndDate: (state, action: PayloadAction<string>) =>{
+            state.filterFormulationEndDate = action.payload;
         },
         incrementComponentsInFormulation: (state) => {
             state.itemsInCart += 1;
@@ -79,6 +94,9 @@ const appSlice = createSlice({
 
 export const {
     setSearchTitle,
+    setFilterFormulationStatus,
+    setFilterFormulationStartDate,
+    setFilterFormulationEndDate,
     incrementComponentsInFormulation,
     decrementComponentsInFormulation
 } = appSlice.actions

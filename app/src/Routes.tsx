@@ -5,6 +5,8 @@ import ChemicalElementPage from "./pages/ChemicalElementPage";
 import { RegisterPage } from "./pages/RegisterPage";
 import { LoginPage } from "./pages/LoginPage";
 import { UserAccountPage } from "./pages/UserAccountPage";
+import { FormulationPage } from "./pages/FormulationPage";
+import { FormulationsListPage } from "./pages/FormulationsListPage";
 
 
 export const AppRoutes = () => {
@@ -32,6 +34,14 @@ export const AppRoutes = () => {
         {
             path: "user-account",
             element: <UserAccountPage />,
+        },
+        {
+            path: "formulations/:formulationId",
+            element: <FormulationPage />,
+        },
+        {
+            path: "formulations-list",
+            element: <FormulationsListPage />,
         },
     ];
     const routeResult = useRoutes(routes);

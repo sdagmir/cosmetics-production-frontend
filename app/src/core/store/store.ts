@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import appReducer from './slices/appSlice.ts';
 import userReducer from './slices/userSlice.ts';
+import formulationReducer from './slices/formulationSlice.ts';
 
 export const store = configureStore({
   reducer: {
     app: appReducer,
     user: userReducer,
+    formulation: formulationReducer
   },
 });
 

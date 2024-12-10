@@ -94,6 +94,8 @@ export interface CreatedFormulations {
    * @format date-time
    */
   date_completion?: string | null;
+
+  adverse_effects_count?: number | null;
 }
 
 export interface ChemicalElement {
@@ -104,7 +106,7 @@ export interface ChemicalElement {
    * @minLength 1
    * @maxLength 30
    */
-  title: string;
+  title?: string;
   /**
    * Путь к изображению
    * @minLength 1
@@ -116,18 +118,18 @@ export interface ChemicalElement {
    * @min -2147483648
    * @max 2147483647
    */
-  volume: number;
+  volume?: number;
   /**
    * Единица измерения
    * @minLength 1
    * @maxLength 10
    */
-  unit: string;
+  unit?: string;
   /**
    * Цена
    * @format decimal
    */
-  price: string;
+  price?: string;
 }
 
 export interface FormulationComponent {
@@ -260,7 +262,7 @@ export interface User {
    * @maxLength 150
    * @pattern ^[\w.@+-]+$
    */
-  username: string;
+  username?: string;
   /**
    * Email address
    * @format email
@@ -272,7 +274,23 @@ export interface User {
    * @minLength 1
    * @maxLength 128
    */
-  password: string;
+  password?: string;
+}
+
+/** Модель запроса аутентификации */
+export interface AuthRequest {
+  /**
+   * Логин пользователя
+   * @example "user123"
+   */
+  username?: string;
+  /**
+   * Пароль пользователя
+   * @example "password123"
+   */
+  password?: string;
+
+  email?: string;
 }
 
 import type { AxiosInstance, AxiosRequestConfig, AxiosResponse, HeadersDefaults, ResponseType } from "axios";
@@ -742,7 +760,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @request GET:/cosmetic_formulations/{id}
      * @secure
      */
-    cosmeticFormulationsRead: (id: string, pk: number, params: RequestParams = {}) =>
+    cosmeticFormulationsRead: (id: string, params: RequestParams = {}) =>
       this.request<FullCosmeticFormulation, void>({
         path: `/cosmetic_formulations/${id}`,
         method: "GET",
@@ -862,7 +880,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
       },
       params: RequestParams = {},
     ) =>
-      this.request<void, void>({
+      this.request<AuthRequest, string>({
         path: `/user/login`,
         method: "POST",
         body: data,

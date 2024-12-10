@@ -24,7 +24,7 @@ export const ChemicalCatalogPage: FC = () => {
       <Container className="pb-4 d-flex flex-column mx-auto" style={{ maxWidth: '1200px' }}>
         <Container className="d-flex flex-row justify-content-between mb-5 mt-5">
           <Breadcrumbs endItem="Каталог" />
-          <Cart connectionRequestId={formulationId} itemsInCart={itemsInCart} />
+          <Cart formulationId={formulationId ? formulationId : 0} itemsInCart={itemsInCart} />
         </Container>
         
         <Row className="align-items-center justify-content-center mb-4 col-12">

@@ -3,11 +3,11 @@ import { Form } from "react-bootstrap";
 import { useAppDispatch } from "../../core/store/hooks";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-// import { loginUser } from "../../core/store/slices/userSlice";
+import { loginUser } from "../../core/store/slices/userSlice";
 import "./LoginForm.css";
 
 export const LoginForm: FC = () => {
-  const [login, setLogin] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
 
@@ -18,15 +18,15 @@ export const LoginForm: FC = () => {
     e.preventDefault();
     setError(null);
 
-    const authRequestDTO = { login, password };
+    const loginData = { username, password };
 
     try {
-      // const resultAction = await dispatch(loginUser(authRequestDTO));
-      // if (loginUser.fulfilled.match(resultAction)) {
-      navigate("/provider-duties"); // Перенаправление на страницу после успешного входа
-      // } else {
-      //   setError(resultAction.payload as string);
-      // }
+      const resultAction = await dispatch(loginUser(loginData));
+      if (loginUser.fulfilled.match(resultAction)) {
+        navigate("/chemical-elements"); // Перенаправление на страницу после успешного входа
+      } else {
+        setError(resultAction.payload as string);
+      }
     } catch (err) {
       setError("Ошибка входа. Попробуйте снова.");
     }
@@ -40,8 +40,8 @@ export const LoginForm: FC = () => {
           <Form.Control
             id="login"
             type="text"
-            value={login}
-            onChange={(e) => setLogin(e.target.value)}
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
             required
             placeholder="Введите логин"
           />

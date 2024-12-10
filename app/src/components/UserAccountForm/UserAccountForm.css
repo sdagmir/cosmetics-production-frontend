@@ -46,6 +46,38 @@
     transform: scale(1.05);
 }
 
+.account-username {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333333;
+    text-align: center;
+}
+
+.current-email-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.current-email-label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.current-email {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #1a6e37;
+    background-color: #eaf8e8;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
 .alert-danger {
     background-color: #ffd4d4;
     color: #c00;
