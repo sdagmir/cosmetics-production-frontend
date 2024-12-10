@@ -25,7 +25,6 @@ export const useFormulationsListPage = () => {
   };
 
   const handleFilterClick = () => {
-    // TODO: Реализуйте API-запрос для получения списка косметических средств с фильтрацией.
     api.cosmeticFormulations.cosmeticFormulationsList({
       status: mapStringToOptQueryParam(filterFormulationStatus),
       formation_start: mapStringToOptQueryParam(filterFormulationStartDate),
@@ -72,7 +71,7 @@ function mapBackendResultToTableData(formulations: any[]): IFormulationsTablePro
       status: mapStatusToTable(formulation.status),
       creationDate: convertDatetimeToDDMMYYYY(formulation.date_created),
       completionDate: convertDatetimeToDDMMYYYY(formulation.date_completion),
-      adverseEffectsCount: formulation.adverse_effects_count || 0,
+      adverseEffectsCount: (formulation.status != 5 && formulation.adverse_effects_count ? formulation.adverse_effects_count : 0) || 0,
     })),
   };
 }

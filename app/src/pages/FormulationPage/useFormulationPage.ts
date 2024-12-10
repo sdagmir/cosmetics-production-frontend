@@ -15,6 +15,7 @@ export const useFormulationPage = () => {
   const dispatch = useAppDispatch();
   const { formulationId } = useParams<{ formulationId: string }>();
   const { formulationName } = useAppSelector((state) => state.formulation);
+  const [ adverseEffectsCount, setAdverseEffectsCount ] = useState<number>(0);
   const [notification, setNotification] = useState<string | null>(null);
   const [chemicalElementsList, setChemicalElementsList] = useState<FormulationComponent[]>([]);
 
@@ -24,6 +25,7 @@ export const useFormulationPage = () => {
         .then((response) => {
           if (response.data) {
             setChemicalElementsList(response.data.components || []);
+            setAdverseEffectsCount(response.data.adverse_effects_count || 0)
           }
         })
         .catch(() => {
@@ -112,6 +114,7 @@ export const useFormulationPage = () => {
     formulationName,
     formulationId,
     notification,
+    adverseEffectsCount,
     handleChemicalElementDosageChange,
     handleDelete,
     handleSaveFormulationName,

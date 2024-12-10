@@ -22,9 +22,9 @@ export const FiltersForFormulations: FC<IFormulationsFilterProps> = ({
                 <Form.Label>Статус</Form.Label>
                 <Form.Select value={selectedStatus} onChange={handleStatusChange}>
                   <option value="">Любой статус</option>
-                  <option value="CREATED">Создано</option>
-                  <option value="IN_PROGRESS">В процессе</option>
-                  <option value="COMPLETED">Завершено</option>
+                  <option value="2">Сформировано</option>
+                  <option value="4">Создано</option>
+                  <option value="5">Отклонено</option>
                 </Form.Select>
               </Form.Group>
             </div>

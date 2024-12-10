@@ -37,14 +37,14 @@
 }
 
 .navbar-collapse {
-  justify-content: center; 
-  text-align: center; 
+  justify-content: flex-end; 
 }
 
 .nav-link-container {
-  flex-direction: column; 
-  align-items: center; 
-  gap: 10px; 
+  display: flex;
+  flex-direction: row; 
+  align-items: center;
+  gap: 15px; 
 }
 
 .nav-link-services {

@@ -3,13 +3,14 @@ import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { ChemicalElementCardInFormulation } from "../../components/ChemicalElementCardInFormulation";
 import { useFormulationPage } from "./useFormulationPage";
 import { Breadcrumbs } from "../../components/BreadCrumbs";
-import { useAppSelector } from "../../core/store/hooks"; // Импорт для доступа к global state
+import { useAppSelector } from "../../core/store/hooks"; 
 
 export const FormulationPage: React.FC = () => {
   const {
     chemicalElementsList,
     formulationName,
     formulationId,
+    adverseEffectsCount,
     handleChemicalElementDosageChange,
     handleDelete,
     handleSaveFormulationName,
@@ -43,9 +44,20 @@ export const FormulationPage: React.FC = () => {
           <div className="mx-auto" style={{ width: "950px" }}>
             <h1 className="text-center mb-4">
               {isEditMode
-                ? "Редактирование косметического средства"
-                : "Просмотр косметического средства"}
+                ? "Создание косметического средства"
+                : "Просмотр состава косметического средства"}
             </h1>
+
+            <p className="text-center mb-4" style={{ fontSize: "1.2rem", color: "#6c757d" }}>
+              Побочные эффекты:{" "}
+              {isEditMode
+                ? adverseEffectsCount > 0
+                  ? adverseEffectsCount
+                  : "Не определено"
+                : adverseEffectsCount > 0
+                ? adverseEffectsCount
+                : "Не определено"}
+            </p>
 
             {isEditMode && (
               <Form onSubmit={(e) => e.preventDefault()} className="mb-4">
@@ -93,7 +105,8 @@ export const FormulationPage: React.FC = () => {
                      key={element.chemical_element.pk}
                      chemicalElement={element}
                      onDosageChange={handleChemicalElementDosageChange}
-                  onDelete={handleDelete}
+                     onDelete={handleDelete}
+                     isEditMode={isEditMode}
                 />
               ))}
 

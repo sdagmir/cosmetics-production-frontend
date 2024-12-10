@@ -9,12 +9,14 @@ interface ChemicalElementCardInFormulationProps {
     chemicalElement: FormulationComponent;
     onDosageChange: (pk: number, dosage: number) => void;
     onDelete: (pk: number) => void;
+    isEditMode: boolean;
 }
 
 export const ChemicalElementCardInFormulation: FC<ChemicalElementCardInFormulationProps> = ({ 
     chemicalElement, 
     onDosageChange, 
-    onDelete 
+    onDelete,
+    isEditMode 
 }) => {
     const [dosage, setDosage] = useState(chemicalElement.dosage || 1);
 
@@ -61,6 +63,7 @@ export const ChemicalElementCardInFormulation: FC<ChemicalElementCardInFormulati
                                             onChange={handleDosageChange}
                                             className="border-2"
                                             style={{ borderColor: "#DEE2E6" }}
+                                            readOnly={!isEditMode}
                                         />
                                     </InputGroup>
                                 </Col>
@@ -69,6 +72,7 @@ export const ChemicalElementCardInFormulation: FC<ChemicalElementCardInFormulati
                     </Row>
                 </Card.Body>
             </Card>
+            {isEditMode && (
             <Button
                 variant="link"
                 className="position-absolute top-50 translate-middle-y"
@@ -81,6 +85,7 @@ export const ChemicalElementCardInFormulation: FC<ChemicalElementCardInFormulati
                     style={{ width: "50px" }}
                 />
             </Button>
+            )}
         </div>
     );
 };

@@ -25,7 +25,7 @@ export const ChemicalElementCard: FC<IChemicalElementProps> = (chemicalElement: 
         const response = await api.component.componentAddCreate(String(chemicalElement.id));
         if (response.status === 200) {
           console.log("Компонент добавлен в косметическое средство.");
-          alert("Компонент добавлен в косметическое средство.");
+
           dispatch(incrementComponentsInFormulation());
         }
       } catch(error) {

@@ -19,7 +19,7 @@ export const Navbar: FC = () => {
   };
 
   return (
-    <NavbarComp expand="false" className="navbar-bg border-bottom border-secondary border-2" sticky="top">
+    <NavbarComp expand="lg" className="navbar-bg border-bottom border-secondary border-2" sticky="top">
       <Container fluid>
         {/* Логотип */}
         <NavbarComp.Brand className="d-flex align-items-center">
