@@ -32,12 +32,6 @@ export const Navbar: FC = () => {
             <Link to="/chemical-elements" className="nav-link-services">
               Каталог химических элементов
             </Link>
-            <Link to="/profile" className="nav-link-services">
-              Личный кабинет
-            </Link>
-            <Link to="/register" className="nav-link-services">
-              Регистрация
-            </Link>
           </Nav>
         </NavbarComp.Collapse>
       </Container>
