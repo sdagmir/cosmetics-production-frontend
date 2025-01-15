@@ -450,40 +450,43 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
       query?: {
         /** Фильтр по названию химического элемента (начинается с) */
         title?: string;
+        page?: number;
+        page_size?: number;
       },
       params: RequestParams = {},
     ) =>
-      this.request<
-        {
-          elements?: {
+      this.request<{
+        results: {
+          elements: {
             /** Уникальный идентификатор элемента */
-            id?: number;
+            id: number;
             /** Название химического элемента */
-            title?: string;
+            title: string;
             /** Путь к изображению элемента */
-            img_path?: string;
+            img_path: string;
             /** Объем химического элемента */
-            volume?: number;
+            volume: number;
             /** Единица измерения объема */
-            unit?: string;
+            unit: string;
             /** Цена химического элемента */
-            price?: string;
+            price: string;
             /** Краткое описание химического элемента */
-            short_description?: string;
+            short_description: string;
             /** Полное описание химического элемента */
-            description?: string;
+            description: string;
           }[];
-          /** Количество элементов в корзине */
-          count?: number;
-          /** ID черновика заявки, если существует */
-          formulation_id?: number;
-        },
-        any
-      >({
+        
+        /** Количество элементов в корзине */
+        items_in_cart: number;
+        /** ID черновика заявки, если существует */
+        formulation_id: number;
+        /** Общее количество элементов (всего страниц) */
+        total_count: number;
+      };
+      }>({
         path: `/component`,
         method: "GET",
         query: query,
-        secure: true,
         format: "json",
         ...params,
       }),

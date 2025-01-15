@@ -5,7 +5,7 @@ import { ChemicalElementCard } from '../../components/ChemicalElementCard';
 import { FC } from 'react';
 import { Breadcrumbs } from '../../components/BreadCrumbs';
 import { useChemicalCatalogPage } from './useChemicalCatalogPage';
-import "./ChemicalCatalogPage.css"
+import "./ChemicalCatalogPage.css";
 
 export const ChemicalCatalogPage: FC = () => {
   const {
@@ -14,6 +14,10 @@ export const ChemicalCatalogPage: FC = () => {
     itemsInCart,
     searchTitle,
     isActive,
+    currentPage,
+    pageSize,
+    totalCount,
+    handlePageChange,
     handleSearchChemicalElementClick,
     handleSearchTitleChange,
   } = useChemicalCatalogPage();
@@ -56,10 +60,31 @@ export const ChemicalCatalogPage: FC = () => {
             </Col>
           ))}
         </Row>
+
+        <Row className="mt-4">
+          <Col className="d-flex justify-content-between">
+            <Button
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
+              variant="success"
+            >
+              Назад
+            </Button>
+            <span>Страница {currentPage}</span>
+            <Button
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage >= Math.ceil(totalCount / pageSize)}
+              variant="success"
+            >
+              Вперед
+            </Button>
+          </Col>
+        </Row>
       </Container>
     </>
   );
 };
 
 export default ChemicalCatalogPage;
+
 

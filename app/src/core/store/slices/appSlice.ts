@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction, createAsyncThunk, isRejectedWithValue } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
 import { api } from "../../api"; 
 import { Component } from "../../api/API"; 
 import { ChemicalElementList as CHEMICAL_ELEMENT_LIST_MOCK} from "../../mock/chemicalElementList";
@@ -28,16 +28,17 @@ const initialState: ChemicalCatalogState = {
 export const fetchChemicalElements = createAsyncThunk(
     "chemicalElements/fetchChemicalElements",
     async (
-        { title }: { title?: string }, { rejectWithValue }
+        { title, page, page_size }: { title?: string; page?: number; page_size?: number },
+        { rejectWithValue }
     ) => {
         try {
-            const response = await api.component.componentList({title});
+            const response = await api.component.componentList({ title, page, page_size });
+            console.log("Response from API:", response.data);
             return response.data;
         } catch {
-            return rejectWithValue({title});
+            return rejectWithValue({ title });
         }
     }
-    
 );
 
 const appSlice = createSlice({
@@ -69,10 +70,11 @@ const appSlice = createSlice({
             state.isActive = false;
           })
           .addCase(fetchChemicalElements.fulfilled, (state, action) => {
-            state.chemicalElementList = action.payload.elements || [];
-            state.formulationId = action.payload.formulation_id || null;
-            state.itemsInCart = action.payload.count || 0;
+            state.chemicalElementList = action.payload.results.elements || [];
+            state.formulationId = action.payload.results.formulation_id || null;
+            state.itemsInCart = action.payload.results.items_in_cart || 0;
             state.isActive = true;
+            console.log("Fetched elements:", action.payload.results.elements);
           })
           .addCase(fetchChemicalElements.rejected, (state, action) => {
             const { title } = action.payload as { title?: string };
